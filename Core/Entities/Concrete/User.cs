@@ -18,13 +18,6 @@ namespace Entities.Concrete
         public byte[] PasswordHash { get; set; }
         public bool[] Status { get; set; }
 
-        public User(int id, string firstName, string lastName, string email, string password)
-        {
-            Id = id;
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Password = password;
-        }
+
     }
 }
