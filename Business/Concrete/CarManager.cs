@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Cache;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
@@ -24,6 +26,9 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+
+        [TransactionScopeAspect]
+        [CacheRemoveAspect("ICarService.get")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
